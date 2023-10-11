@@ -6,12 +6,15 @@ export function activate(context: ExtensionContext) {
   const themes = getAllTheme()
   context.subscriptions.push(registerCommand('fast-switch-theme.pick', () => {
     const currentTheme = getCurrentTheme()
-
-    createSelect(themes.map(item => item.label), {
-      onDidSelectItem(v) {
+    const options = themes.map(item => item.label)
+    const i = options.indexOf(currentTheme)
+    options.splice(i, 1)
+    options.unshift(currentTheme)
+    createSelect(options, {
+      onDidSelectItem(v: string) {
         if (v) {
-          const id = themes.find(theme => theme.label === v)!.id
-          setTheme(id || v)
+          const id = themes.find(theme => theme.label === v)!.id || v
+          setTheme(id)
         }
       },
       ignoreFocusOut: true,
@@ -20,8 +23,8 @@ export function activate(context: ExtensionContext) {
         setTheme(currentTheme)
       }
       else {
-        const id = themes.find(theme => theme.label === v)!.id
-        setTheme(id || v)
+        const id = themes.find(theme => theme.label === v)!.id || v
+        setTheme(id)
       }
     }, () => {
       setTheme(currentTheme)
@@ -39,5 +42,3 @@ export function activate(context: ExtensionContext) {
 export function deactivate() {
 
 }
-
-// 调用函数获取当前主题
