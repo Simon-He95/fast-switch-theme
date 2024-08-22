@@ -2,7 +2,7 @@
   "publisher": "simonhe",
   "name": "fast-switch-theme",
   "displayName": "fast-switch-theme",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "packageManager": "pnpm@8.15.9",
   "description": "fast-switch-theme",
   "author": "Simon He <https://github.com/Simon-He95>",
