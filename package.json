@@ -3,7 +3,7 @@
   "name": "fast-switch-theme",
   "displayName": "fast-switch-theme",
   "version": "0.0.2",
-  "packageManager": "pnpm@8.1.1",
+  "packageManager": "pnpm@8.15.9",
   "description": "fast-switch-theme",
   "author": "Simon He <https://github.com/Simon-He95>",
   "license": "MIT",
@@ -24,11 +24,8 @@
   ],
   "main": "./dist/index.js",
   "icon": "icon.png",
-  "files": [
-    "dist"
-  ],
   "engines": {
-    "vscode": "^1.77.0"
+    "vscode": "^1.92.0"
   },
   "activationEvents": [
     "onStartupFinished"
@@ -38,26 +35,26 @@
     "test": "vitest",
     "build": "tsup src/index.ts --external vscode",
     "pack": "vsce package --no-dependencies",
-    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
-    "lint:fix": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache --fix",
+    "lint": "eslint . --cache",
+    "lint:fix": "pnpm lint --fix",
     "publish": "vsce publish --no-dependencies",
     "typecheck": "tsc --noEmit",
     "release": "bumpp && pnpm run publish"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.38.4",
-    "@types/node": "^18.15.11",
-    "@types/vscode": "^1.77.0",
-    "@vscode-use/utils": "^0.0.50",
-    "bumpp": "^9.1.0",
-    "eslint": "^8.37.0",
+    "@antfu/eslint-config": "^2.27.0",
+    "@types/node": "^18.19.45",
+    "@types/vscode": "^1.92.0",
+    "@vscode-use/utils": "^0.1.21",
+    "@vscode/vsce": "^3.0.0",
+    "bumpp": "^9.5.1",
+    "eslint": "^9.9.0",
     "esno": "^0.16.3",
-    "pnpm": "^8.1.1",
+    "pnpm": "^8.15.9",
     "rimraf": "^4.4.1",
     "tsup": "^6.7.0",
-    "typescript": "^5.0.3",
-    "vite": "^4.2.1",
-    "vitest": "^0.29.8",
-    "vsce": "^2.15.0"
+    "typescript": "^5.5.4",
+    "vite": "^4.5.3",
+    "vitest": "^0.29.8"
   }
 }
